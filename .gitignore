@@ -5,3 +5,5 @@ backup/
 dist/
 npm-debug.log
 .idea
+bundle.js
+index.html

@@ -36,7 +36,8 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --config webpack-dev.config.js --hot --progress --colors --history-api-fallback"
+    "start": "webpack-dev-server --config webpack-dev.config.js --hot --progress --colors --history-api-fallback",
+    "test-travis": "webpack --config webpack-dev.config.js"
   },
   "keywords": [
     "React"
