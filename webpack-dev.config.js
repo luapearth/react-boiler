@@ -25,7 +25,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ['style', 'css?sourceMap', 'sass?sourceMap', 'postcss']
+        loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap']
       },
       {
         test: /\.(jpe?g|png|gif)$/i,
