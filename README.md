@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/luapearth/react-boiler.svg?branch=master)](https://travis-ci.org/luapearth/react-boiler)
 # ReactJS Boilerplate
 
+[![Build Status](https://travis-ci.org/luapearth/react-boiler.svg?branch=master)](https://travis-ci.org/luapearth/react-boiler)
 Start learning ReactJS by forking this Repo.
 
 ### What's in
