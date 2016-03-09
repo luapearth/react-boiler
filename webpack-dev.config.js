@@ -1,3 +1,4 @@
+var path = require('path');
 var autoprefixer = require('autoprefixer');
 var precss = require('precss');
 
@@ -34,6 +35,9 @@ module.exports = {
   },
   postcss: function() {
     return [autoprefixer, precss]
+  },
+  sassLoader: function() {
+    includePaths: [path.join(__dirname, 'app', 'styles')]
   }
 }
 
