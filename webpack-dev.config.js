@@ -6,40 +6,51 @@ module.exports = {
   context: __dirname + '/app',
   entry: {
     javascript: getEntrySources(['./scripts/app.js']),
-    html: './index.html'
+    html: './index.html',
   },
   output: {
     publicPath: 'http://localhost:8080/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.html$/,
-        loader: 'file?name=[name].[ext]'
+        use: [{ loader: 'file-loader?name=[name].[ext]' }],
       },
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loaders: ['react-hot', 'babel']
+        use: [{ loader: 'babel-loader' }],
       },
       {
-        test: /\.scss$/,
-        loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap']
+        test: /\.s?css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: { importLoaders: 1 },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [autoprefixer()],
+            },
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
       },
       {
         test: /\.(jpe?g|png|gif)$/i,
-        loaders: ['img', 'url?limit=8192']
-      }
-    ]
+        use: [{ loader: 'img-loader' }, { loader: 'url-loader?limit=8192' }],
+      },
+    ],
   },
-  postcss: function() {
-    return [autoprefixer, precss]
-  },
-  sassLoader: function() {
-    includePaths: [path.join(__dirname, 'app', 'styles')]
-  }
-}
+};
 
 function getEntrySources(sources) {
   if (process.env.NODE_ENV !== 'production') {
